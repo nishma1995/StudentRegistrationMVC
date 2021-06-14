@@ -1,0 +1,40 @@
+﻿@model StudentRegistrationMVC.Models.Student
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index1", "Home", FormMethod.Post))
+{
+    <label>Name</label>
+    <br>
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+    
+    <label>Address</label>
+    <br />
+    @Html.TextAreaFor(m => m.Address)
+    <br />
+   
+    <label>Gender</label>
+    <label>M</label>
+
+    @Html.RadioButtonFor(m => m.Gender, "Male")
+    <label>F</label>
+
+    @Html.RadioButtonFor(m => m.Gender, "Female")
+    <br />
+   
+    <label>UG</label>
+    @Html.CheckBoxFor(m => m.Ug)
+    <label>PG</label>
+    @Html.CheckBoxFor(m => m.Pg)
+    <br />
+    
+    <label>Department</label>
+    <br />
+    @Html.DropDownListFor(m => m.Department, new SelectList(Enum.GetValues(typeof(StudentRegistrationMVC.Models.Departments))), "Select Level")
+
+    <input type="submit" value="Submit" />
+
+}
